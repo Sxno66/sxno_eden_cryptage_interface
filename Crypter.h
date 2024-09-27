@@ -14,9 +14,18 @@ class Crypter {
 		~Crypter();
 
 		void AEScrypt(const std::string PathsaveKey, const std::string File, const std::string OutputFile);
-		void RSAcrypt();
+		void AESDecrypt(const std::string PathsaveKey, const std::string CryptFile, const std::string FileDecrypt);
 
+
+		void RSAcrypt(const std::string SavePublic, const std::string SavePrivate, const std::string File, const std::string OutputFile);
+		void RSADcrypt(const std::string Public, const std::string Private, const std::string CryptFile, const std::string OutputFile);
 		
+
+		std::string Hashfile(const std::string inputFile);
+		bool HashVerify(const std::string inputeFile, const std::string InputHash);
+
+
+
 
 	private:
 
