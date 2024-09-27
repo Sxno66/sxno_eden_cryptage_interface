@@ -68,6 +68,12 @@ void Crypter::AEScrypt(const std::string PathsaveKey, const std::string File, co
  * @param CryptFile Chemin du fichier chiffré.
  * @param FileDecrypt Chemin du fichier déchiffré en sortie.
  */
+void Crypter::AEScryptusingkey(const std::string PathsKey, const std::string File, const std::string OutputFile) {
+
+    AesGestion AES;
+    AES.LoadAESKeyFromFile(PathsKey);
+    AES.EncryptFileAES256(File, OutputFile);
+}
 void Crypter::AESDecrypt(const std::string PathsaveKey, const std::string CryptFile, const std::string FileDecrypt) {
 
     AesGestion AES;
@@ -87,6 +93,12 @@ void Crypter::RSAcrypt(const std::string SavePublic, const std::string SavePriva
     RsaGestion RSA;
 
     RSA.generationClef(SavePublic, SavePrivate, 2048);
+    RSA.chiffrementFichier(File, OutputFile, true);
+}
+
+void Crypter::RSAcryptusingsave(const std::string SavePublic, const std::string SavePrivate, const std::string File, const std::string OutputFile) {
+    RsaGestion RSA;
+    RSA.chargementClefs(SavePublic, SavePrivate);
     RSA.chiffrementFichier(File, OutputFile, true);
 }
 
