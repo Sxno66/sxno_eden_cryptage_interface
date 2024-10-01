@@ -22,6 +22,14 @@ private slots:
 
     void on_pushButton_encrypt_clicked();
 
+    void on_pushButton_browse_decrypt_input_clicked();
+
+    void on_pushButton_browse_decrypt_output_clicked();
+
+    void on_pushButton_browse_load_aes_key_clicked();
+
+    void on_pushButton_decrypt_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
