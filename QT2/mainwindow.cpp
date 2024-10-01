@@ -50,31 +50,40 @@ void MainWindow::showHomePage()
 
 void MainWindow::showSHAPage()
 {
-        QWidget *shaWidget = new QWidget(this);
-        QVBoxLayout *layout = new QVBoxLayout(shaWidget);
+    QWidget *shaWidget = new QWidget(this);
+    QVBoxLayout *layout = new QVBoxLayout(shaWidget);
 
-        QPushButton *returnButton = new QPushButton("Retour", this);
-        QLineEdit *inputText = new QLineEdit(this);
-        QPushButton *hashButton = new QPushButton("Hacher", this);
-        QTextEdit *resultText = new QTextEdit(this);
-        resultText->setReadOnly(true);
+    QPushButton *returnButton = new QPushButton("Retour", this);
+    QPushButton *hashButton = new QPushButton("Hacher", this);
+    QPushButton *resetButton = new QPushButton("Réinitialiser", this); // Second bouton
+    QLineEdit *inputText = new QLineEdit(this);
+    QTextEdit *resultText = new QTextEdit(this);
+    resultText->setReadOnly(true);
 
-        layout->addWidget(returnButton); // Ajouter le bouton Retour
-        layout->addWidget(new QLabel("Entrez le texte à hacher :"));
-        layout->addWidget(inputText);
-        layout->addWidget(hashButton);
-        layout->addWidget(new QLabel("Résultat du hachage :"));
-        layout->addWidget(resultText);
+    layout->addWidget(new QLabel("Entrez le texte à hacher :")); // Label pour le texte à hacher
+    layout->addWidget(inputText); // Zone de texte pour l'entrée
+    layout->addWidget(hashButton); // Bouton pour hacher
+    layout->addWidget(new QLabel("Résultat du hachage :")); // Label pour le résultat
+    layout->addWidget(resultText); // Zone de texte pour le résultat
+    layout->addWidget(resetButton); // Bouton pour réinitialiser
+    layout->addWidget(returnButton); // Ajouter le bouton Retour
 
-        connect(returnButton, &QPushButton::clicked, this, &MainWindow::on_homebutton_clicked); // Connecter le bouton
-        connect(hashButton, &QPushButton::clicked, this, [inputText, resultText]() {
-            QString hashed = "hashed_" + inputText->text(); // Remplacer par la fonction de hachage réelle
-            resultText->setText(hashed);
-            qDebug() << "Hachage effectué pour :" << inputText->text();
-        });
+    connect(returnButton, &QPushButton::clicked, this, &MainWindow::on_homebutton_clicked);
 
-        shaWidget->setLayout(layout);
-        setCentralWidget(shaWidget);
+    connect(hashButton, &QPushButton::clicked, this, [inputText, resultText]() {
+        QString hashed = "hashed_" + inputText->text(); // Remplacer par la fonction de hachage réelle
+        resultText->setText(hashed);
+        qDebug() << "Hachage effectué pour :" << inputText->text();
+    });
+
+    connect(resetButton, &QPushButton::clicked, [inputText, resultText]() {
+        inputText->clear(); // Effacer la zone de texte
+        resultText->clear(); // Effacer le résultat
+    });
+
+    shaWidget->setLayout(layout);
+    setCentralWidget(shaWidget);
+
 }
 
 void MainWindow::showRSAPage()
