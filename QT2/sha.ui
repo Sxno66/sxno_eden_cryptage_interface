@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Modern Application</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QMainWindow {
+      background-color: #f0f0f0;
+    }
+    QFrame {
+      background-color: white;
+      border-radius: 10px;
+    }
+   </string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="menuWidget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+        QWidget#menuWidget {
+          background-color: #2c3e50;
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+        QPushButton {
+          background-color: transparent;
+          color: white;
+          border: none;
+          text-align: left;
+          padding: 10px;
+          font-size: 16px;
+        }
+        QPushButton:hover {
+          background-color: #34495e;
+        }
+        QPushButton:pressed {
+          background-color: #2980b9;
+        }
+       </string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="logolabel">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>path/to/your/logo.png</pixmap>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="homebutton">
+         <property name="text">
+          <string>Home</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="shabutton">
+         <property name="text">
+          <string>SHA256</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>path/to/dashboard_icon.png</normaloff>path/to/dashboard_icon.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="aesbutton">
+         <property name="text">
+          <string>AES</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>path/to/analytics_icon.png</normaloff>path/to/analytics_icon.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="rsabutton">
+         <property name="text">
+          <string>RSA</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>path/to/settings_icon.png</normaloff>path/to/settings_icon.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="contentFrame">
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="contentArea">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignHCenter|Qt::AlignmentFlag::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
