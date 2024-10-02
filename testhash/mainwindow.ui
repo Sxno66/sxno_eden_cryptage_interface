@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hashing Tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>580</width>
+      <height>350</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="tab_hash_file">
+     <attribute name="title">
+      <string>Hasher un fichier</string>
+     </attribute>
+     <widget class="QLabel" name="label_hash_input_file">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sélectionner fichier à hacher :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_hash_input_file">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>300</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_browse_hash_input">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>20</y>
+        <width>75</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Parcourir</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_hash_output_file">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>60</y>
+        <width>300</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_generate_hash">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>120</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Générer Hash</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_hash_input_file_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>HASH 256 :</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_test_hash">
+     <attribute name="title">
+      <string>Tester un hash</string>
+     </attribute>
+     <widget class="QLabel" name="label_test_input_file">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Sélectionner fichier :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_test_input_file">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>300</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_browse_test_input">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>20</y>
+        <width>75</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Parcourir</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_test_hash">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>150</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Entrer hash attendu :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_test_hash">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>60</y>
+        <width>300</width>
+        <height>25</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_verify_hash">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>120</y>
+        <width>100</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Vérifier Hash</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
