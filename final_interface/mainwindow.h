@@ -44,6 +44,28 @@ private slots:
 
     void on_pushButton_decrypt_clicked();
 
+    void on_pushButton_browse_rsa_pub_clicked();
+
+    void on_pushButton_browse_rsa_priv_clicked();
+
+    void on_pushButton_generate_rsa_keys_clicked();
+
+    void on_pushButton_browse_rsa_public_encrypt_clicked();
+
+    void on_pushButton_browse_rsa_encrypt_input_clicked();
+
+    void on_pushButton_browse_rsa_encrypt_output_clicked();
+
+    void on_pushButton_rsa_encrypt_clicked();
+
+    void on_pushButton_browse_rsa_decrypt_input_2_clicked();
+
+    void on_pushButton_browse_rsa_decrypt_input_clicked();
+
+    void on_pushButton_browse_rsa_decrypt_output_clicked();
+
+    void on_pushButton_rsa_decrypt_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -24,7 +24,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 
-
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../cryptopp/x64/Output/release/ -lcryptlib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../cryptopp/x64/Output/debug/ -lcryptlib
 

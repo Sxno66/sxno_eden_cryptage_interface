@@ -226,17 +226,163 @@ void MainWindow::on_pushButton_decrypt_clicked()
 void MainWindow::on_pushButton_browse_rsa_pub_clicked()
 {
     //lineEdit_rsa_pub_key
+    QString filePath = QFileDialog::getSaveFileName(this, QObject::tr("Select Output File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_pub_key->setText(filePath);
+    }
 }
 
 
 void MainWindow::on_pushButton_browse_rsa_priv_clicked()
 {
-//lineEdit_rsa_priv_key
+    //lineEdit_rsa_priv_key
+    QString filePath = QFileDialog::getSaveFileName(this, QObject::tr("Select Output File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_priv_key->setText(filePath);
+    }
 }
 
 
 void MainWindow::on_pushButton_generate_rsa_keys_clicked()
 {
     //genrate key
+    QString Publickey = ui->lineEdit_rsa_pub_key->text();
+    QString PrivateKey = ui->lineEdit_rsa_priv_key->text();
+
+    Publickey.replace("/", "\\");
+    PrivateKey.replace("/", "\\");
+
+    std::string Publickeystd = Publickey.toStdString();
+    std::string PrivateKeystd = PrivateKey.toStdString();
+
+    qDebug() << "public File:" << QString::fromStdString(Publickeystd);
+    qDebug() << "Private File:" << QString::fromStdString(PrivateKeystd);
+
+    RsaGestion RSA;
+    RSA.generationClef(Publickeystd, PrivateKeystd, 2048);
+
 }
+
+
+void MainWindow::on_pushButton_browse_rsa_public_encrypt_clicked()
+{
+    //lineEdit_rsa_public_path
+    QString filePath = QFileDialog::getOpenFileName(this, QObject::tr("Select Input File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_public_path->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_browse_rsa_encrypt_input_clicked()
+{
+    //lineEdit_rsa_encrypt_input_file
+    QString filePath = QFileDialog::getOpenFileName(this, QObject::tr("Select Input File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_encrypt_input_file->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_browse_rsa_encrypt_output_clicked()
+{
+    //lineEdit_rsa_encrypt_output_file
+    QString filePath = QFileDialog::getSaveFileName(this, QObject::tr("Select Output File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_encrypt_output_file->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_rsa_encrypt_clicked()
+{
+    QString Publickey = ui->lineEdit_rsa_public_path->text();
+    QString inputfile = ui->lineEdit_rsa_encrypt_input_file->text();
+    QString outputfile = ui->lineEdit_rsa_encrypt_output_file->text();
+
+    Publickey.replace("/", "\\");
+    inputfile.replace("/", "\\");
+    outputfile.replace("/", "\\");
+
+    std::string Publickeystd = Publickey.toStdString();
+    std::string inputfilestd = inputfile.toStdString();
+    std::string outputfilestd = outputfile.toStdString();
+
+    qDebug() << "public File:" << QString::fromStdString(Publickeystd);
+    qDebug() << "file input File:" << QString::fromStdString(inputfilestd);
+    qDebug() << "file output File:" << QString::fromStdString(outputfilestd);
+
+    RsaGestion RSA;
+
+    RSA.chargementClefsPublic(Publickeystd);
+    RSA.chiffrementFichier(inputfilestd, outputfilestd, true);
+}
+
+
+void MainWindow::on_pushButton_browse_rsa_decrypt_input_2_clicked()
+{
+    //lineEdit_Private_Path
+    QString filePath = QFileDialog::getOpenFileName(this, QObject::tr("Select Input File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_Private_Path->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_browse_rsa_decrypt_input_clicked()
+{
+    //lineEdit_rsa_decrypt_input_file
+    QString filePath = QFileDialog::getOpenFileName(this, QObject::tr("Select Input File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_decrypt_input_file->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_browse_rsa_decrypt_output_clicked()
+{
+    //lineEdit_rsa_decrypt_output_file
+    QString filePath = QFileDialog::getSaveFileName(this, QObject::tr("Select Output File"), "", QObject::tr("All Files (*)"));
+    if (!filePath.isEmpty())
+    {
+        ui->lineEdit_rsa_decrypt_output_file->setText(filePath);
+    }
+}
+
+
+void MainWindow::on_pushButton_rsa_decrypt_clicked()
+{
+    //lineEdit_Public_Path
+    //lineEdit_rsa_decrypt_input_file
+    //lineEdit_rsa_decrypt_output_file
+    QString Privatekey = ui->lineEdit_rsa_public_path->text();
+    QString inputfile = ui->lineEdit_rsa_decrypt_input_file->text();
+    QString outputfile = ui->lineEdit_rsa_decrypt_output_file->text();
+
+    Privatekey.replace("/", "\\");
+    inputfile.replace("/", "\\");
+    outputfile.replace("/", "\\");
+
+    std::string Privatekeykeystd = Privatekey.toStdString();
+    std::string inputfilestd = inputfile.toStdString();
+    std::string outputfilestd = outputfile.toStdString();
+
+    qDebug() << "public File:" << QString::fromStdString(Privatekeykeystd);
+    qDebug() << "file input File:" << QString::fromStdString(inputfilestd);
+    qDebug() << "file output File:" << QString::fromStdString(outputfilestd);
+
+
+    RsaGestion RSA;
+    RSA.chargementClefsPrive(Privatekeykeystd);
+
+    RSA.dechiffrementFichier(inputfilestd, outputfilestd, true);
+}
+
 

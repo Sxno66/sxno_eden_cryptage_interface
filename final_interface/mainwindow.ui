@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_hash_file">
      <attribute name="title">
@@ -756,7 +756,7 @@
        <string>Browse</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_Public_Path">
+     <widget class="QLineEdit" name="lineEdit_Private_Path">
       <property name="geometry">
        <rect>
         <x>180</x>
